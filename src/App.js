@@ -34,6 +34,11 @@ function App() {
     setOutput(suggestion);
   };
 
+  const clear = () => {
+    setUserInput('');
+    setSuggestions([]);
+  };
+
   return (
     <>
       <h1 className="container-h1">Enter a number to start</h1>
@@ -45,7 +50,7 @@ function App() {
         onClick={selectSuggestion}
       />
 
-      <button type="button" className="clear-button">clear</button>
+      <button type="button" className="clear-button" onClick={clear}>clear</button>
 
       <span>{error && <p>Sorry, something went wrong</p>}</span>
 
