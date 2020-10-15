@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchData } from './services/fetchData';
-import logo from './logo.svg';
+import PhoneInput from "./PhoneInput";	
 import './App.css';
 
 function App() {
@@ -15,17 +15,11 @@ function App() {
     <div className="App">
 
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {console.log(data)}
         {console.log(error)}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className="container-h1">Enter a number to start</h1>
+        <PhoneInput
+          data={data}
+        />
       </header>
     </div>
   );
