@@ -7,10 +7,15 @@ import './App.css';
 function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
     fetchData('http://localhost:3001/t9', setData, setError);
   }, []);
+
+  const enterNumber = (number) => {
+    setSuggestions(data[number]);
+  };
 
   return (
     <>
@@ -18,7 +23,9 @@ function App() {
 
       <div className="output" />
 
-      <Suggestions />
+      <Suggestions
+        suggestions={suggestions}
+      />
 
       <button type="button" className="clear-button">clear</button>
 
@@ -26,6 +33,7 @@ function App() {
 
       <PhoneInput
         data={data}
+        onClick={enterNumber}
       />
     </>
   );
