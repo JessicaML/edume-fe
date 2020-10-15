@@ -8,6 +8,7 @@ function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
+  const [output, setOutput] = useState('');
 
   useEffect(() => {
     fetchData('http://localhost:3001/t9', setData, setError);
@@ -17,14 +18,19 @@ function App() {
     setSuggestions(data[number]);
   };
 
+  const selectSuggestion = (suggestion) => {
+    setOutput(suggestion);
+  };
+
   return (
     <>
       <h1 className="container-h1">Enter a number to start</h1>
 
-      <div className="output" />
+      <div className="output">{output}</div>
 
       <Suggestions
         suggestions={suggestions}
+        onClick={selectSuggestion}
       />
 
       <button type="button" className="clear-button">clear</button>
