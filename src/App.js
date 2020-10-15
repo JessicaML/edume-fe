@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchData } from './services/fetchData';
-import PhoneInput from "./PhoneInput";	
+import PhoneInput from './PhoneInput';
+import Suggestions from './Suggestions';
 import './App.css';
 
 function App() {
@@ -12,16 +13,21 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <>
+      <h1 className="container-h1">Enter a number to start</h1>
 
-      <header className="App-header">
-        {console.log(error)}
-        <h1 className="container-h1">Enter a number to start</h1>
-        <PhoneInput
-          data={data}
-        />
-      </header>
-    </div>
+      <div className="output" />
+
+      <Suggestions />
+
+      <button type="button" className="clear-button">clear</button>
+
+      <span>{error && <p>Sorry, something went wrong</p>}</span>
+
+      <PhoneInput
+        data={data}
+      />
+    </>
   );
 }
 
