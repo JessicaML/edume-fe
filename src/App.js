@@ -31,7 +31,11 @@ function App() {
   };
 
   const selectSuggestion = (suggestion) => {
-    setOutput(suggestion);
+    setOutput(`${output} ${suggestion}`);
+    setSuggestions([]);
+    if (userInput > 2) {
+      setUserInput('');
+    }
   };
 
   const clear = () => {
