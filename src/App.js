@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { fetchData } from './services/fetchData';
+import words from './services/words';
 import getCombinations from './utils/getCombinations';
+import getPredictions from './utils/getPredictions';
 import PhoneInput from './PhoneInput';
 import Suggestions from './Suggestions';
 import './App.css';
@@ -16,18 +18,20 @@ function App() {
     fetchData('http://localhost:3001/t9', setData, setError);
   }, []);
 
-  const enterNumber = (number) => {
-    if (number > 1) {
-      setUserInput(userInput + number);
-      if (userInput + number.length > 1) {
-        const combinations = getCombinations(userInput + number, data);
-        setSuggestions(combinations);
-        console.log('combinations', combinations);
-      } else {
-        setSuggestions(data[number]);
+  const enterNumber = (value) => {
+    if (value === 0) return null;
+    const newInput = userInput + value;
+    setUserInput(newInput);
+    let suggestions = data[value];
+
+    if (newInput.length > 1) {
+      const combinations = getCombinations(newInput, data);
+      const predictions = getPredictions(combinations, words);
+      if (predictions.length !== 0) {
+        suggestions = predictions
       }
-    }
-    setSuggestions(data[number]);
+    } 
+    setSuggestions(suggestions);
   };
 
   const selectSuggestion = (suggestion) => {
@@ -61,6 +65,7 @@ function App() {
       <PhoneInput
         data={data}
         onClick={enterNumber}
+        disabled={userInput.length > 1}
       />
     </>
   );
