@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { fetchData } from './services/fetchData';
-import words from './services/words';
-import getCombinations from './utils/getCombinations';
-import getPredictions from './utils/getPredictions';
+import { fetchData } from '../services/fetchData';
+import words from '../services/words';
+import getCombinations from '../utils/getCombinations';
+import getPredictions from '../utils/getPredictions';
 import PhoneInput from './PhoneInput';
 import Suggestions from './Suggestions';
-import './App.css';
+import '../App.css';
 
 function App() {
   const [data, setData] = useState(null);
