@@ -17,6 +17,7 @@ If you have the time, ways to go beyond the minimal solution could include for e
 * phone keyboard -like UI
 * great project setup
 * filtering to include only real words based on a suitable word list
+<img width="883" alt="Screenshot 2020-10-18 at 15 24 31" src="https://user-images.githubusercontent.com/7221533/96370564-33de5300-1156-11eb-81cf-737555faa177.png">
 
 
 # How to run
