@@ -11,3 +11,93 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+div {
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.container-h1 {
+  margin: 5px;
+  color: #3b3b3b;
+}
+
+.output {
+  height: 100px;
+  max-width: 308px;
+  border: 1px solid #999;
+  overflow: auto;
+  margin: 0 5px 10px 5px;
+}
+
+.suggestions {
+  height: 100px;
+  max-width: 308px;
+  border: 1px solid #999;
+  overflow: auto;
+  margin: 5px;
+}
+
+.suggestions-wraper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions-button {
+  list-style: none;
+  background-color: white;
+  border: none;
+}
+
+.suggestion-active,
+.suggestions-button:hover {
+  background-color: #F4702D;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.clear-button {
+  background-color: #3FC6BD;
+  color: #000000;
+  width: 100px;
+  height: 20px;
+  margin: 5px;
+  border: none
+}
+
+.phoneInput-wrapper {
+  width: 330px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.phoneInput-h2 {
+  margin: 0;
+}
+
+.phoneInput-p {
+  margin: 0;
+}
+
+.phoneInput-button {
+  width: 100px;
+  height: 70px;
+  background-color: #34345B;
+  color: #ffffff;
+  margin: 5px;
+  border: none;
+}
+
+.phoneInput-button:disabled {
+  background: #ccc;
+}
+
+

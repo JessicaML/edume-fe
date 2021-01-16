@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Task 
 
-## Available Scripts
+Implement a number to word list converter as a Node backend and React/Redux frontend.
 
-In the project directory, you can run:
+If you're not familiar with some of the languages or frameworks then feel free to adapt as you see fit to what you have more experience with. We're more interested in seeing your general approach rather than specific experience with the tech.
 
-### `yarn start`
+The backend should provide a rest endpoint that converts a given numeric string into a list of corresponding words in the style of T9 [https://en.wikipedia.org/wiki/T9_(predictive_text)] or Phonewords [https://en.wikipedia.org/wiki/Phoneword]. For example, given the input 23 the output should be: ad, ae, af, bd, be, bf, cd, ce, cf
+
+(This is not an API spec, please use your judgement on what a good request or response format is)
+
+The frontend should allow the user to enter a number, query the backend for the corresponding expansions, and display them.
+
+We'd like you to set a deadline for your work, communicate it to us, and proceed to complete a solution that showcases your skills. The solution should be shared with us in a git repository with real history included. We're interested in seeing high quality, readable code.
+
+If you have the time, ways to go beyond the minimal solution could include for example:
+
+* phone keyboard -like UI
+* great project setup
+* filtering to include only real words based on a suitable word list
+
+
+# How to run
+
+First, clone and run https://github.com/JessicaML/edume-server on port 3001
+
+Then clone and run this repo on port 3000.
+
+$ `git clone git@github.com:JessicaML/edume-t9-react.git`
+
+$ `cd edume-t9-react`
+
+$ `yarn install`
+
+$ `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
+$ `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# What I would implement with more time:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Add redux and connect the data from the API fetch to the Redux state.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Test the API fetch with a mock fetch.
 
-### `yarn eject`
+- Adjust the getPredictions function to only return words which contain the letter combinations if those combinations are the first 2 characters in the word. (E.g. 23 should return ‘ad’ and ‘adipisicing’ but not ‘occaecat’.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Add a get which queries the backend, e.g. `/get?23`, and transfer the getCombinations and getPredictions to the edume-server project and and return the combinations/predictions in the request body. However, there is a performance advantage in fetching the json object from the server once, and performing the logic on the front end. This means there is only one request to the server as the page loads and the user does not have to wait for a response.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
